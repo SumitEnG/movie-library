@@ -1,0 +1,7 @@
+.list{
+    height:93vh;
+    display: flex;
+    width:84vw;
+    flex-wrap: wrap;
+    overflow: auto;
+}

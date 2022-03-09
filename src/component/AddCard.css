@@ -1,0 +1,29 @@
+.form{
+    height:90vh;
+    display: flex;
+    width:16vw;
+    flex-direction: column;
+    justify-content: center;
+}
+.input{
+    width:200px;
+    margin-left: 120px;
+    margin:10px;
+    padding: 10px;
+    border-radius: 5px; 
+    box-shadow: 5px 5px 10px black ;
+}
+.btn{
+    margin: 10px;
+    padding:10px;
+    width:100px;
+    border-radius: 10px;
+    background-color:yellow;
+    font-weight: bolder;
+    box-shadow:5px 5px 10px black;
+    margin-left:60px;
+}
+.btn:hover{
+ box-shadow: 0 0 10px greenyellow;
+ cursor: pointer;
+}

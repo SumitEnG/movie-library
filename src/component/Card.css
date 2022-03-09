@@ -1,0 +1,46 @@
+.cardBody{
+    max-height: 300px;
+    width:380px;
+    border: 1px solid black;
+    margin:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    box-shadow: 10px 10px 10px black;
+    backdrop-filter: blur(6px);
+    color:white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.cardBody:hover{
+    transform: scale(1.1);
+}
+
+.summary{
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+ .btn1{
+     background-color: green;
+     border-radius: 5px;
+     box-shadow: 10px 10px 5px black;
+     margin-left:200px;
+ }
+ .btn1:hover{
+     cursor: pointer;
+ }
+ .btn2{
+    background-color: tomato;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
+    margin-left:20px;
+ }
+ 
+ .btn2:hover{
+    cursor: pointer;
+}
