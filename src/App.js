@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 function App() {
 
-  const [movie,setMovie]=useState([])
+  const [movie,setMovie]=useState({})
 
   const getMovies = async() =>{
     
-  let url="http://localhost:3000/movies";
+  let url="https://library-fb1d5-default-rtdb.firebaseio.com/books.json";
     await axios.get(url).then((result)=>setMovie(result))
   }
 
@@ -22,7 +22,7 @@ function App() {
     <div className='App'>
      <Nav />
     <div className="bodySection">
-      <List props={movie}/>
+      <List data={movie}/>
       <AddCard />
     </div>
     </div>

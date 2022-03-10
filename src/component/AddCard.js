@@ -9,18 +9,20 @@ function AddCard() {
   const [summary,setSummary]=useState("");
   const [genre,setGenre]=useState("");
 
-  const addMovies=()=>{
-    let details={
+  const addMovies= async()=>{
+    let details=JSON.stringify({
       title:title,
       leadActor:leadActor,
       imdbRating:imdbRating,
       summary:summary,
       img:img,
       genre:genre
-    }
-  let url ="http://localhost:3000/movies";
-    axios.post(url,details).then((res)=>console.log(res));
+    })
+
+  let url ="https://library-fb1d5-default-rtdb.firebaseio.com/books.json";
+    await axios.post(url,details).then((res)=>console.log(res));
   }
+
   return (
     <div>
       <form className='form'>

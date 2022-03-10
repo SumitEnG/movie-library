@@ -5,7 +5,7 @@ function Card({title ,genre,img,leadActor,summary,imdbRating}) {
     <div className='cardBody'>
       <h3>{title}</h3>
       <div style={{width:"100%",display:"flex"}}>
-      <div classname='insideCard' style={{width:"100%",justifyContent:"flexStart",paddingLeft:"10px"}}>
+      <div className='insideCard' style={{width:"100%",justifyContent:"flexStart",paddingLeft:"10px"}}>
         <p>Lead actor:{leadActor}</p>
         <p>imdb-rating:{imdbRating}</p>
         <p>genre:{genre}</p>
