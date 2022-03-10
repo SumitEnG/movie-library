@@ -7,15 +7,16 @@ function List({data}) {
   return (
     <div className="list" >
 
-      {Object.keys(data.data).map((item,index)=>(
+      {data.data && Object.keys(data.data).map((item,index)=>(
       <Card 
-      //   key={index}
-        title={data.data[item].title}
-      //   genre={item.genre}
-      //  img={item.img}
-      //  leadActor={item.leadActor}
-      //  summary={item.summary}
-      //  imdbRating={item.imdbRating}  
+       id={item}
+       key={item}
+       title={data.data[item].title}
+       genre={data.data[item].genre}
+       img={data.data[item].img}
+       leadActor={data.data[item].leadActor}
+       summary={data.data[item].summary}
+       imdbRating={data.data[item].imdbRating}  
       />))}
       
     </div>
