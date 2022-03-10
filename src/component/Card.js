@@ -32,7 +32,9 @@ function Card({id,title ,genre,img,leadActor,summary,imdbRating}) {
       img:updateImg,
       genre:updateGenre
     })
-     axios.put(url,updateDetails).then((res)=>console.log(res));
+     axios.put(url,updateDetails).then((res)=>{
+       window.location.reload()
+       console.log(res)});
     setModalIsOpen(false)
     }
 
