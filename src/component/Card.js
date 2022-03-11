@@ -3,27 +3,32 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import Modal from 'react-modal/lib/components/Modal'
 import './Card.css'
-function Card({id,title ,genre,img,leadActor,summary,imdbRating}) {
+function Card({uniqueId,title ,genre,img,leadActor,summary,imdbRating}) {
        
    const[modalIsOpen,setModalIsOpen]=useState(false)
    
-  const [updateTitle,setUpdateTitle]=useState("");
-  const [updateLeadActor,setUpdateLeadActor]=useState("");
-  const [updateImdbRating,setUpdateImdbRating]=useState("");
-  const [updateImg,setUpdateImg]=useState("");
-  const [updateSummary,setUpdateSummary]=useState("");
-  const [updateGenre,setUpdateGenre]=useState("");
+  const [updateTitle,setUpdateTitle]=useState(title);
+  const [updateLeadActor,setUpdateLeadActor]=useState(leadActor);
+  const [updateImdbRating,setUpdateImdbRating]=useState(imdbRating);
+  const [updateImg,setUpdateImg]=useState(img);
+  const [updateSummary,setUpdateSummary]=useState(summary);
+  const [updateGenre,setUpdateGenre]=useState(genre);
 
   function deleteDetails() {
-    console.log(id)
-    let url = `https://library-fb1d5-default-rtdb.firebaseio.com/books/${id}.json`
-    axios.delete(url).then((response) => console.log(response)).catch((err) => console.log(err))
-    window.location.reload()
+    console.log(uniqueId)
+    let url = `https://library-fb1d5-default-rtdb.firebaseio.com/books/${uniqueId}.json`
+    axios.delete(url).then((response) =>
+    { 
+      window.location.reload()
+      console.log(response)
+    })
+    .catch((err) => console.log(err))
+   
   }
    
-  function editDetails(id){
-    console.log(id)
-    let url = `https://library-fb1d5-default-rtdb.firebaseio.com/books/${id}.json`
+  function editDetails(uniqueId){
+    console.log(uniqueId)
+    let url = `https://library-fb1d5-default-rtdb.firebaseio.com/books/${uniqueId}.json`
     let updateDetails= JSON.stringify({
       title:updateTitle,
       leadActor:updateLeadActor,
@@ -59,12 +64,12 @@ function Card({id,title ,genre,img,leadActor,summary,imdbRating}) {
       <input type="text" placeholder='genre' className='input' value={updateGenre} onChange={(e)=>setUpdateGenre(e.target.value)} />
       <input type="text" placeholder='img url' className='input'  value={updateImg} onChange={(e)=>setUpdateImg(e.target.value)}/>
       <textarea placeholder='summary'className='input' value={updateSummary} onChange={(e)=>setUpdateSummary(e.target.value)}></textarea>
-      <button type='submit' className='btn' isOpen={false} onClick={()=>editDetails(id)}>Add movie</button>
+      <button type='submit' className='btn' isOpen={false} onClick={()=>editDetails(uniqueId)}>Add movie</button>
       </div>
         </Modal>
     
-      <button className='btn1' type='submit' onClick={()=>setModalIsOpen(true)}>Edit</button>
-      <button className='btn2' type='submit' onClick={()=>deleteDetails(id)}>Delete</button>
+      <button className='btn1' type='submit' onClick={()=>setModalIsOpen(uniqueId)}>Edit</button>
+      <button className='btn2' type='submit' onClick={()=>deleteDetails(uniqueId)}>Delete</button>
     
       </div>
     </div> 

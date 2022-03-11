@@ -9,7 +9,7 @@ function List({data}) {
 
       {data.data && Object.keys(data.data).map((item,index)=>(
       <Card 
-       id={item}
+       uniqueId={item}
        key={item}
        title={data.data[item].title}
        genre={data.data[item].genre}
